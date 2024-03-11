@@ -105,7 +105,7 @@ def procesare_fisier(filename):
     with open(filename, "r") as f:
         reader = csv.reader(f) if filename.endswith(".csv") else open(filename, "r")
         for row in reader:
-            # Extrageți datele din fișier.
+# Extrage datele din fișier.
             id_persoana = row[0]
             data = datetime.datetime.strptime(row[1], "%Y-%m-%d")
             ora = datetime.datetime.strptime(row[2], "%H:%M:%S")
@@ -138,11 +138,9 @@ def validate_data(data):
     if sens not in ("in", "out"):
         return False, "Valoare invalidă pentru 'sens'."
 
-# ... (alte verificări specifice)
-
     return True, "Date valide."
     def validate_data(data):
-# Verificați schema JSON.
+
         from jsonschema import validate
 
 def validate_json_schema(data, schema_file):
@@ -165,7 +163,7 @@ def validate_json_schema(data, schema_file):
     except Exception as e:
         print(f"Eroare la validarea schemei JSON: {e}")
         return False
-# ... (implementați verificarea schemei JSON)
+
 import requests
 
 def get_json_schema(schema_url):
@@ -202,15 +200,13 @@ def get_json_schema(schema_url):
     if sens not in ("in", "out"):
         return False, "Valoare invalidă pentru 'sens'."
 
-# ... (alte verificări specifice)
 
     return True, "Date valide."
-
-#  ... insert into database
+    
     return 'Data received', 200 
 
 def calculate_work_hours():
-# Obțineți toate intrările/ieșirile din baza de date.
+# Obține toate intrările/ieșirile din baza de date.
     query = """
         SELECT a.id_persoana, a.data, a.ora, a.sens, u.nume, u.companie, u.id_manager
         FROM access a
